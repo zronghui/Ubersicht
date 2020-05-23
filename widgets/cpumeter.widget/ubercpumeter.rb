@@ -16,11 +16,11 @@ WHITE = '<span class="white">'
 DEFAULT= '<span>'
 
 def spacer(string)
-	if string.length > 15
-		string = string[0 .. 11] + "...  "
+	if string.length > 20
+		string = string[0 .. 16] + "...  "  # 长度：22
 	else
-		spaces = 16 - string.length
-		0.upto(spaces) do
+		spaces = 22 - string.length
+		0.upto(spaces-1) do
 			string += " "
 		end
 	end
@@ -38,7 +38,7 @@ input.delete_if {|line|
 input.each {|line|
 	next if line =~ /bersicht/
 	if line =~ /^(.*?)\s+(\d{1,3}\.\d)$/
-		exit if counter == 5 or total == 5
+		exit if counter == 5 or total == 10
 		score = $2.to_i
 		color = case score
 		   when 0..10 then DEFAULT

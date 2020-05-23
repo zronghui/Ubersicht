@@ -21,12 +21,11 @@ style: """
   border none
   box-sizing border-box
   color #141f33
-  font-family Helvetica Neue
   font-weight 300
   line-height 1.5
   padding 10px
   right 30px
-  top 100px
+  top 200px
   width 190px
   text-align justify
   background rgba(0,0,0,.25)
@@ -50,6 +49,9 @@ style: """
     margin 0
     font-family MesloLGMDZ
     color rgba(255,255,255,.8)
+  pre span
+    font-size 10px
+    font-family Menlo
 
 
   .red

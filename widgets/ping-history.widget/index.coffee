@@ -200,7 +200,7 @@ style: """
       vertical-align top
       padding 1px 3px 0
       font-family Helvetica Neue
-      font-size 11px
+      font-size 13px
       line-height 10px
     
     td.name
@@ -210,7 +210,7 @@ style: """
     
     td.ping
       font-weight 200
-      font-size 15px
+      font-size 12px
       text-align right
       padding-top 3px
       min-width 50px

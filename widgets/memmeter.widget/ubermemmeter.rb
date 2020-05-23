@@ -22,11 +22,11 @@ def bytesToMeg(bytes)
 end
 
 def spacer(string)
-	if string.length > 15
-		string = string[0 .. 11] + "...  "
+	if string.length > 20
+		string = string[0 .. 16] + "...  "  # 长度：22
 	else
-		spaces = 16 - string.length
-		0.upto(spaces) do
+		spaces = 22 - string.length
+		0.upto(spaces-1) do
 			string += " "
 		end
 	end
@@ -44,7 +44,7 @@ input.each_line {|line|
 	next if line =~ /bersicht/
 	if line =~ /^(.*?)\s+(\d{4,})$/
 		exit if counter == 5 or total == 10
-		puts "#{spacer($1)}#{bytesToMeg($2)}"
+		puts "<span>#{spacer($1)}#{bytesToMeg($2)}</span>"
 		if $2.to_i < 1
 			counter += 1
 		end
