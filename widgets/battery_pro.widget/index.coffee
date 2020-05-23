@@ -97,14 +97,6 @@ style: """
     opacity: #{opacityLevel}
     padding: 4px 8px 4px 6px
 
-    &:after
-      content: 'BATTERY'
-      position: absolute
-      left: 0
-      top: -14px
-      font-size: 10px
-      font-weight: 500
-      color: #{labelColor}
   
   .percent
     font-size: 18px
@@ -169,6 +161,12 @@ update: (output, domEl) ->
     document.getElementById("batt_icon").src=batteryCharging
     status = 'AC attached'
     
+  if status=="charged"
+    status = "已充满"
+  else if status=="discharging"
+    status = "放电中"
+  else if status=="charging"
+    status = "充电中"
   div.find('.status').html(status)
   
   

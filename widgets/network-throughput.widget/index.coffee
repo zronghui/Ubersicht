@@ -22,7 +22,7 @@ style: """
     border-radius 5px
 
     .container
-        width: 150px
+        width: 130px
         text-align: widget-align
         position: relative
         clear: both
@@ -50,25 +50,13 @@ style: """
     .stat
         width: 50%
         .down
+            font-size 15px
             float: left
             text-align left
         .up
+            font-size 15px
             float: right
             text-align right
-
-    .label-down
-        font-size 8px
-        text-transform uppercase
-        font-weight bold
-        float: left
-        align: left
-
-    .label-up
-        font-size 8px
-        text-transform uppercase
-        font-weight bold
-        float: right
-        align: right
 
     .bar-container
         width: 100%
@@ -100,15 +88,11 @@ style: """
 
 render: -> """
     <div class="container">
-        <div class="widget-title">Network</div>
+        <!-- <div class="widget-title">Network</div> -->
         <table class="stats-container">
             <tr>
                 <td class="stat"><span class="down"></span></td>
                 <td class="stat"><span class="up"></span></td>
-            </tr>
-            <tr>
-                <td class="label"><span class="label-down">down</span></td>
-                <td class="label"><span class="label-up">up</span></td>
             </tr>
         </table>
         <div class="bar-container">
@@ -133,7 +117,10 @@ update: (output, domEl) ->
 
     updateStat = (sel, currBytes, totalBytes) ->
         percent = (currBytes / totalBytes * 100).toFixed(1) + "%"
-        $(domEl).find(".#{sel}").text usage(currBytes)
+        if sel=='down'
+          $(domEl).find(".#{sel}").text usage(currBytes) + '↑'
+        else if sel=='up'
+          $(domEl).find(".#{sel}").text usage(currBytes) + '↓'
         $(domEl).find(".bar-#{sel}").css "width", percent
 
     args = output.split "^"
