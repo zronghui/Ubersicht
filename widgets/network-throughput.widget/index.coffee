@@ -118,9 +118,9 @@ update: (output, domEl) ->
     updateStat = (sel, currBytes, totalBytes) ->
         percent = (currBytes / totalBytes * 100).toFixed(1) + "%"
         if sel=='down'
-          $(domEl).find(".#{sel}").text usage(currBytes) + '↑'
-        else if sel=='up'
           $(domEl).find(".#{sel}").text usage(currBytes) + '↓'
+        else if sel=='up'
+          $(domEl).find(".#{sel}").text usage(currBytes) + '↑'
         $(domEl).find(".bar-#{sel}").css "width", percent
 
     args = output.split "^"
