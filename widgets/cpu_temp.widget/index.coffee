@@ -9,6 +9,7 @@ opacityLevel		='1'
 lineColor			= '#00BFFF'	  # Blue
 bkground			= 'rgba(#000, 0.5)'
 
+# iStats cpu | awk '{print $3}'
 command: "/usr/local/lib/ruby/gems/2.6.0/bin/iStats cpu | tr -s ' ' |cut -d ' ' -f 3- | cut -d 'C' -f 1"
 refreshFrequency: 5000
 
@@ -65,11 +66,12 @@ update: (output, domEl) ->
   lightOrange = '#ffc154'
   lightRed = '#ff6254'
 
-  if cpu_temp<=45
+  baseTemp = 50
+  if cpu_temp<=baseTemp
     cpuColor = softLimeGreen
-  else if cpu_temp<=50
+  else if cpu_temp<=baseTemp+5
     cpuColor = lightYellow
-  else if cpu_temp<=55
+  else if cpu_temp<=baseTemp+10
     cpuColor = lightOrange
   else
     cpuColor = lightRed
