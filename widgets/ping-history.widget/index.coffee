@@ -12,7 +12,7 @@ command: """
   #  domain3_name:ping: cannot resolve domain4_name: Unknown host
   
   ###  LIST YOUR DOMAINS HERE
-  declare -a domains=(47.93.53.47 taobao.com)
+  declare -a domains=(101.200.240.225 taobao.com)
   declare -a aliases=(fwq taobao)
   ###  AND DON'T FORGET SHORT ALIASES
 

@@ -1,0 +1,8 @@
+###################################################
+# If line empty or first char is a #, ignore line #
+###################################################
+
+# Custom Test 用 http 是不是快一点
+http://youtube.com/
+http://github.com
+
